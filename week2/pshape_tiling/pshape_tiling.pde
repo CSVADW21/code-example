@@ -1,7 +1,9 @@
 //pshape tiling
 PShape tile; // creates an instance of a PShape object
-float rW = 40;
-float rH = 40;
+PShape tile2;
+
+float rW = 100;
+float rH = 100;
 float[] patternA = {0.5, 1, 0.25, 0.75};
 float[] patternB = {1, 0.5, 0.75, 0.25};
 float[] patternC = {0.75, 0.25, 1, 0.5};
@@ -10,7 +12,11 @@ float[] patternD = {0.25, 0.75, 0.5, 1};
 float [][] patternList = {patternA, patternB, patternC, patternD};
 
 void setup() {
-  tile = loadShape("tile.svg"); // load the .svg file and assign it to your created PShape object. this step is important! 
+  tile = loadShape("tile.svg"); 
+  tile2 = loadShape("tile2.svg");
+  
+  // load the .svg file and assign it to your created PShape object. this step is important! 
+  
   // make sure you have ALSO added your .svg file to the directory (assignmentName\data\title.svg). this step is also important!
   // to add the .svg file into the data folder, you can: 
     // 1) drag and drop the file into this editor. Processing will automatically create a data folder (if there isn't one already) with your file in it.
@@ -76,6 +82,13 @@ void drawSeed(float x, float y, float r) {
   translate(x+rW/2, y+rH/2); // translates the origin of the coordinate system to a new position
   rotate(r); // multiplies the current transformation matrix by a rotation matrix, resulting in a rotation around the translated origin
   noFill();
-  shape(tile,0,0,rW,rH); // draws the PShape object at translated coordinates 0, 0 (or in untranslated coordinates -> x+rW/2, y+rH/2) of width rW and height rH
+  float tV = random(0,1);
+  if(tV < 0.5){
+    shape(tile,0,0,rW,rH); 
+  }
+  else{
+   shape(tile2,0,0,rW,rH); 
+  }
+  // draws the PShape object at translated coordinates 0, 0 (or in untranslated coordinates -> x+rW/2, y+rH/2) of width rW and height rH
   popMatrix(); // restores the prior, pre-translated coordinate system (origin is back to 0, 0)
 }

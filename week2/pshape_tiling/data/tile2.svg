@@ -11,6 +11,6 @@
 <rect x="-124" y="-124.7" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" width="248.1" height="249.4"/>
 <path fill="#FF7D2A" d="M-123,82.7"/>
 <path fill="#FFFFFF" d="M-123,82.7l-1.1,42l108.1-1c0,0-67-26-79-36s-8-44-14-46S-123,82.7-123,82.7z"/>
-<ellipse fill="#FFFFFF" cx="20" cy="2.9" rx="76" ry="56.9"/>
+<ellipse fill="#FF0000" cx="20" cy="2.9" rx="76" ry="56.9"/>
 <ellipse fill="#FFFFFF" cx="-53.3" cy="-68.5" rx="16.8" ry="10.5"/>
 </svg>

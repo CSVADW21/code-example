@@ -1,7 +1,7 @@
 import controlP5.*;
 
 int seedCount = 100;
-int dandelionCount = 20;
+int dandelionCount = 10;
 float velocityScaling = 1.0;
 float rotationVariance = 60;
 
