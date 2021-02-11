@@ -12,7 +12,7 @@ void setup(){
   size(800,800);
   swatches = new ArrayList<Swatch>();
   swatch1 = new Swatch(round(width*0.3),height/2,100,0,100,100);
-  swatch2 = new Swatch(round(width*0.6),height/2,100,50,100,100);
+  swatch2 = new Swatch(round(width*0.6),height/2,100,10,100,100);
   swatch1.locked = true;
   swatch2.locked = true;
   swatches.add(swatch1);
@@ -47,19 +47,13 @@ void draw(){
     framesElapsed ++;
     if(framesElapsed > 100){
       generateVariations(selectedSwatch,mouseX,mouseY);
-      framesElapsed = 75;
+      framesElapsed = 0;
     }
   }
  
 }
 
-void mousePressed(){
-  Swatch s = checkForSwatchHit(mouseX,mouseY);
-  if(s != null && s.locked){
-     s.selected = true;
-    selectedSwatch = s;
-  }
-}
+
 
 void keyPressed(){
   if(key == 'c'){
@@ -109,15 +103,17 @@ void mouseDragged(){
    }   
 }
 
-void mouseClicked(MouseEvent evt) {
-  if (evt.getCount() == 2){
-    Swatch s = checkForSwatchHit(mouseX,mouseY);
-    if(s != null){
-      s.locked = true;
-      s.rad = 100;
-    }
+
+void mousePressed(){
+  Swatch s = checkForSwatchHit(mouseX,mouseY);
+  if(s != null && s.locked){
+    println("swatch selected");
+     s.selected = true;
+    selectedSwatch = s;
+       s.rad = 75;
   }
 }
+
 
 void deselectAllSwatches(){
    for(int i=0;i<swatches.size();i++){
@@ -127,11 +123,14 @@ void deselectAllSwatches(){
 }
 
 Swatch checkForSwatchHit(int x,int y){
+  println("swatch length",swatches.size());
    for(int i=swatches.size()-1;i>=0;i--){
    Swatch s = swatches.get(i);
    boolean hitTest = s.hitTest(x,y);
    
    if(hitTest == true){
+     println("hit",i);
+     s.locked = true;
        return s;
    }
   } 
